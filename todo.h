@@ -1,3 +1,5 @@
+struct AddTooManyTasksThrows {};
+struct RemoveInvalidIndexThrows {};
 
 class TodoList {
 public:

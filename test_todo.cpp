@@ -54,7 +54,7 @@ TEST(TodoListTest, RemoveInvalidIndexThrows) {
     TodoList todo;
     todo.init();
     todo.add_task("Sample Task");
-
+    EXPECT_THROW(todo.remove_task(-1), RemoveInvalidIndexThrows);
     // TODO: Try removing at invalid indices
     // Example: negative index and out-of-bound index
 
@@ -64,7 +64,10 @@ TEST(TodoListTest, RemoveInvalidIndexThrows) {
 TEST(TodoListTest, AddTooManyTasksThrows) {
     TodoList todo;
     todo.init();
-
+    for (int i=0; i<32;i++){
+        todo.add_task("work");
+    }
+    EXPECT_THROW(todo.add_task("too much"), AddTooManyTasksThrows);
     // TODO: Add exactly 32 tasks in a loop
     // Then try adding a 33rd task and expect an exception
 
